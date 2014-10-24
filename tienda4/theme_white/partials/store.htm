@@ -1,0 +1,74 @@
+﻿
+  <div ng-app="myApp" id="store" class="content span12" style="overflow: hidden;" ng-controller="AdminController">        
+    <form class="form-search"> 
+                    <div class="span12 store-cart-content">
+                      <div class="content-store span5" >
+                        <a href="index.html#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                                        <img src="images/cart.png" alt="" />
+                                        <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                                    </a>
+                        </div>
+                       <div class="tabs-menu span5">
+                         <ul class="cbp-vm-options">
+                            <li ng-repeat="section in sections">
+                                <a class="cbp-vm-icon cbp-vm-grid {{section.class}}" ng-class="{cbpvmselected : isSelected(section)}"  ng-click="setMaster(section)">{{section.name}}</a>
+                            </li>
+                        </ul>
+                       </div>
+                    </div>
+                    <div class="span12 store-button-top">
+                        <div class="content-search">
+                           <input type="text" ng-model="query" ng-change="search('name')" class="search-query" placeholder="Search">
+                        </div>
+                        <div class="filter-button-top">
+                           <button class="btn flr-top-first" ng-click="myFilter('category',null)">All</button>
+                           <button class="btn flr-top" ng-click="myFilter('category','mac')">MacPro</button>
+                           <button class="btn flr-top" ng-click="myFilter('category','ipad')">Ipad</button>
+                           <button class="btn flr-top" ng-click="myFilter('category','phone')">Phone</button>
+                           <button class="btn flr-top flr-last" ng-click="myFilter('category','sound')">Soud</button>
+                       </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="cbp-vm" class="cbp-vm-switcher" ng-class="{true: '', false: 'activegrid'}[isActive]">
+                        <ul id="product" class="nav-pills nav-stacked rectangle-list">
+                            <li ng-animate="'animate'" ng-repeat="product in pagedItems[currentPage]" >
+                                <img ng-src="images/{{product.src}}" alt="{{product.name}}" /><br />
+
+                                <a class="title" href="#/products/{{product.code}}"> {{product.name}}  </a>
+
+                                <p class="description"> {{product.description}} </p>
+                                <a class="number" href="#"> {{product.num}}  </a>
+                    
+                                <a href="" ng-click="cart.addItem(product.code, product.name, product.price, 1)">
+                                   <div class="btn btn-cart">Add cart</div>
+                                </a>
+                                <a class="details-button" href="#/products/{{product.code}}">
+                                   <div class="btn btn-cart">Details</div>
+                                </a>
+                                <p class="content_desc"> 
+                                        {{product.price | currency}} 
+                                        <span ng-show="cart.getTotalCount(product.code) > 0"><i class="fa fa-check"></i>{{cart.getTotalCount(product.code)}}</span>
+                                    </p>
+                                <div class="clear"></div>
+                          </li> 
+                      </ul>
+                      <div class="span12 store-cart-content store-cart-footer">
+                       <div class="content-store span5" >
+                        <a href="index.html#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                                        <img src="images/cart.png" alt="" />
+                                        <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                                    </a>
+                        </div>
+                        <div class="span5 store-down-bottom">
+                             <button class="btn store-pag-button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                                Previous
+                            </button>
+                            <p>{{currentPage + 1}}/{{numberOfPages}}</p>
+                            <button class="btn btn-pag-next" ng-disabled="currentPage >= store.products.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+    </form>
+  </div>

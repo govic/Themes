@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html ng-app="Angustore">
+  <head>
+    <title>Angustore - your shopping online</title>
+    <meta name="description" content="Angustore it's the mini shop online for sell your product, not need the database or php, but only Html, Css, Javascript and AngularJs.">
+    <meta name="keywords" content="	shopping cart, products, ecommerce, shopping, money, responsive, paypal, angularjs, filter, search, table, store, store">
+    <meta name="author" content="Corsini Alessio"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <!-- jQuery, Angular -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <!--<script src="js/animation.js" type="text/javascript"></script>-->
+    <script src="http://code.angularjs.org/1.1.5/angular.js" type="text/javascript"></script>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Stripe -->
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.61.0-2013.06.06/jquery.blockUI.min.js"></script>
+
+    <!-- AngularStore app -->
+    <script src="js/list/modernizr.custom.js" type="text/javascript"></script>
+     
+    <script src="js/store.js" type="text/javascript"></script>
+    <script src="js/cart.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controller.js" type="text/javascript"></script>
+    <link href="css/font-awesome-4.0.1/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/component_black.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/style_black.css"/>
+  </head>
+  <body>
+            <div class="container">
+              <div class="container-shadow">
+                    <a class="logo" href="index.html">
+                            <img src="img/logo.png"  alt="logo"/>
+                        </a>
+                    <h1 class="well">
+                        Angustore 
+                    </h1>
+                    <div ng-view ></div>
+                    <div class="row-fluid content-footer">
+                      <div class="span12" style="background:#212121;padding:20px;text-align:center;"><p>Copyright © 2014 Themes by Corsaro. All rights reserved.</p></div>
+                    </div>
+               </div>
+            </div>
+
+  </body>
+</html>
